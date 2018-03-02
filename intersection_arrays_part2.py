@@ -6,25 +6,33 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        ans = []
-        if len(nums1) == 0 or len(nums2) == 0:
-            return ans
-        n1 = sorted(nums1)
-        n2 = sorted(nums2)
+#         if len(nums1)==0 or len(nums2)==0:
+#             return []
+#         ans = []
+#         d1 = {}
+#         d2 = {}
+#         for num in nums1:
+#             d1[num] = d1.get(num,0)+1
+#         for num in nums2:
+#             d2[num] = d2.get(num,0)+1
 
+#         if len(d1) < len(d2):
+#             for key in d1.keys():
+#                 if key in d2:
+#                     ans+=([key]*min(d1[key],d2[key]))
+#         else:
+#             for key in d2.keys():
+#                 if key in d1:
+#                     ans+=([key]*min(d1[key],d2[key]))
 
-        i = 0
-        j = 0
-        while True:
-            if i == len(n1) or j == len(n2):
-                break
-            if n1[i] < n2[j]:
-                i+=1
-            elif n1[i] > n2[j]:
-                j+=1
-            elif n1[i] == n2[j]:
-                ans.append(n1[i])
-                i+=1
-                j+=1
+#         return ans
 
-        return ans
+        d1 = {}
+        for num in nums1:
+            d1[num] = d1.get(num,0)+1
+        d2 = []
+        for num in nums2:
+            if num in d1 and d1[num] > 0:
+                d2.append(num)
+                d1[num] -= 1
+        return d2
