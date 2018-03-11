@@ -13,3 +13,4 @@ class Solution(object):
             if d[s[i]]== 1: return i
 
         return -1
+        
