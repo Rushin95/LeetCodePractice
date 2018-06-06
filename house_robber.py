@@ -26,3 +26,12 @@ class Solution(object):
         else:
             ans = max(nums[0] + helper(0), nums[1] + helper(1))
             return ans
+
+        # Iterative Solution using constant space. 
+        # inc = 0
+        # exc = 0
+        # for num in nums:
+        #     temp_inc = exc + num
+        #     exc = inc if inc > exc else exc
+        #     inc = temp_inc
+        # return max(inc, exc)
