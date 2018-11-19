@@ -8,7 +8,7 @@ class Solution(object):
         :rtype: List[List[int]]
         """
 
-        nums.sort()
+        nums.sort() # time complexity = O(nlogn)
         ans = []
 
         for i in xrange(len(nums) - 2):

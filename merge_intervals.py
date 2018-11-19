@@ -24,8 +24,8 @@ class Solution(object):
             prev = ans[-1]
             curr = intervals[i]
 
-            if curr.start <= prev.end:
-                ans[-1].end = max(prev.end, curr.end)
+            if curr.start <= prev.end: # current interval is starting on the left of end of previous
+                ans[-1].end = max(prev.end, curr.end) # merge intervals
             else:
-                ans.append(curr)
+                ans.append(curr) # append curr interval as it is
         return ans
